@@ -1,0 +1,5 @@
+{
+  "name": "HabitGrid",
+  "description": "A GitHub-style habit tracker prototype featuring Google Login simulation, custom habit frequencies, and an AI-powered habit coach.",
+  "requestFramePermissions": []
+}
