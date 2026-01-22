@@ -1,0 +1,6 @@
+- [ ] Install dependencies (`prettier`, `eslint-config-prettier`, `eslint-plugin-prettier`) <!-- id: 0 -->
+- [ ] Create `.prettierrc` with standard rules <!-- id: 1 -->
+- [ ] Create `.prettierignore` (ignoring node_modules, .expo, etc) <!-- id: 2 -->
+- [ ] Create/Update `.eslintrc.js` to extend `expo` and `prettier` <!-- id: 3 -->
+- [ ] Update `package.json` scripts: `lint` (check), `format` (fix) <!-- id: 4 -->
+- [ ] Verify: Run `npm run lint` and `npm run format` <!-- id: 5 -->
