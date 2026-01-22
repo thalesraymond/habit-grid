@@ -1,7 +1,3 @@
-
-> habit-grid@1.0.0 test
-> jest
-
 watchman warning:  Recrawled this watch 1 time, most recently because:
 dir missing from internal stateTo resolve, please review the information on
 https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
@@ -9,43 +5,46 @@ To clear this warning, run:
 `watchman watch-del '/home/thales/projects/habit-grid' ; watchman watch-project '/home/thales/projects/habit-grid'`
 
 FAIL __tests__/App.test.tsx
-  HomeScreen
-    ✕ renders successfully (43 ms)
+  ● Test suite failed to run
 
-  ● HomeScreen › renders successfully
+    ReferenceError: /home/thales/projects/habit-grid/__tests__/App.test.tsx: The module factory of `jest.mock()` is not allowed to reference any out-of-scope variables.
+    Invalid variable access: _ReactNativeCSSInterop
+    Allowed objects: AbortController, AbortSignal, AggregateError, Array, ArrayBuffer, AsyncDisposableStack, Atomics, BigInt, BigInt64Array, BigUint64Array, Blob, Boolean, BroadcastChannel, Buffer, ByteLengthQueuingStrategy, CloseEvent, CompressionStream, CountQueuingStrategy, Crypto, CryptoKey, CustomEvent, DOMException, DataView, Date, DecompressionStream, DisposableStack, Error, EvalError, Event, EventTarget, File, FinalizationRegistry, Float16Array, Float32Array, Float64Array, FormData, Function, Generator, GeneratorFunction, Headers, Infinity, Int16Array, Int32Array, Int8Array, InternalError, Intl, Iterator, JSON, Map, Math, MessageChannel, MessageEvent, MessagePort, NaN, Navigator, Number, Object, Performance, PerformanceEntry, PerformanceMark, PerformanceMeasure, PerformanceObserver, PerformanceObserverEntryList, PerformanceResourceTiming, Promise, Proxy, RangeError, ReadableByteStreamController, ReadableStream, ReadableStreamBYOBReader, ReadableStreamBYOBRequest, ReadableStreamDefaultController, ReadableStreamDefaultReader, ReferenceError, Reflect, RegExp, Request, Response, Set, SharedArrayBuffer, String, SubtleCrypto, SuppressedError, Symbol, SyntaxError, TextDecoder, TextDecoderStream, TextEncoder, TextEncoderStream, TransformStream, TransformStreamDefaultController, TypeError, URIError, URL, URLPattern, URLSearchParams, Uint16Array, Uint32Array, Uint8Array, Uint8ClampedArray, WeakMap, WeakRef, WeakSet, WebAssembly, WebSocket, WritableStream, WritableStreamDefaultController, WritableStreamDefaultWriter, __dirname, __filename, arguments, atob, btoa, clearImmediate, clearInterval, clearTimeout, console, crypto, decodeURI, decodeURIComponent, encodeURI, encodeURIComponent, escape, eval, expect, exports, fetch, global, globalThis, isFinite, isNaN, jest, module, navigator, parseFloat, parseInt, performance, process, queueMicrotask, require, setImmediate, setInterval, setTimeout, structuredClone, undefined, unescape.
+    Note: This is a precaution to guard against uninitialized mock variables. If it is ensured that the mock is required lazily, variable names prefixed with `mock` (case insensitive) are permitted.
+     (This is an error on an internal node. Probably an internal error.)
 
-    useLinkPreviewContext must be used within a LinkPreviewContextProvider. This is likely a bug in Expo Router.
-
-       6 | describe('HomeScreen', () => {
-       7 |   it('renders successfully', () => {
-    >  8 |     render(<HomeScreen />);
-         |           ^
-       9 |     expect(screen.getByText('Welcome :D!')).toBeTruthy();
-      10 |   });
-      11 | });
-
-      at useLinkPreviewContext (node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/src/link/preview/LinkPreviewContext.tsx:26:11)
-      at LinkWithPreview (node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/src/link/LinkWithPreview.tsx:27:54)
-      at Object.react-stack-bottom-frame (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13976:20)
-      at renderWithHooks (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2866:22)
-      at updateFunctionComponent (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:6006:19)
-      at beginWork (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:7474:18)
-      at runWithFiberInDEV (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:1574:13)
-      at performUnitOfWork (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10972:22)
-      at workLoopSync (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10816:41)
-      at renderRootSync (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10797:11)
-      at performWorkOnRoot (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10384:39)
-      at performWorkOnRootViaSchedulerTask (node_modules/.pnpm/react-test-renderer@19.1.0_react@19.1.0/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2094:7)
-      at flushActQueue (node_modules/.pnpm/react@19.1.0/node_modules/react/cjs/react.development.js:566:34)
-      at Object.<anonymous>.process.env.NODE_ENV.exports.act (node_modules/.pnpm/react@19.1.0/node_modules/react/cjs/react.development.js:859:10)
-      at actImplementation (node_modules/.pnpm/@testing-library+react-native@13.3.3_jest@29.7.0_@types+node@25.0.10__react-native@0.81_6f1d4c5b7ee7d91664f6a2fc8a501b4d/node_modules/@testing-library/react-native/src/act.ts:30:25)
-      at renderWithAct (node_modules/.pnpm/@testing-library+react-native@13.3.3_jest@29.7.0_@types+node@25.0.10__react-native@0.81_6f1d4c5b7ee7d91664f6a2fc8a501b4d/node_modules/@testing-library/react-native/src/render-act.ts:13:11)
-      at renderInternal (node_modules/.pnpm/@testing-library+react-native@13.3.3_jest@29.7.0_@types+node@25.0.10__react-native@0.81_6f1d4c5b7ee7d91664f6a2fc8a501b4d/node_modules/@testing-library/react-native/src/render.tsx:69:33)
-      at renderInternal (node_modules/.pnpm/@testing-library+react-native@13.3.3_jest@29.7.0_@types+node@25.0.10__react-native@0.81_6f1d4c5b7ee7d91664f6a2fc8a501b4d/node_modules/@testing-library/react-native/src/render.tsx:44:10)
-      at Object.<anonymous> (__tests__/App.test.tsx:8:11)
+      at File.buildCodeFrameError (node_modules/.pnpm/@babel+core@7.28.6/node_modules/@babel/core/src/transformation/file/file.ts:251:12)
+      at NodePath.buildError [as buildCodeFrameError] (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/path/index.ts:161:21)
+      at call (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/visitors.ts:299:14)
+      at NodePath.call [as _call] (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/path/context.ts:36:20)
+      at NodePath.call (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/path/context.ts:21:18)
+      at NodePath.call [as visit] (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/path/context.ts:97:31)
+      at TraversalContext.visit [as visitQueue] (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/context.ts:151:16)
+      at TraversalContext.visitQueue [as visitMultiple] (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/context.ts:99:17)
+      at TraversalContext.visitMultiple [as visit] (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/context.ts:182:19)
+      at visit (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/traverse-node.ts:208:17)
+      at NodePath.visit (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/path/context.ts:104:33)
+      at TraversalContext.visit [as visitQueue] (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/context.ts:151:16)
+      at TraversalContext.visitQueue [as visitSingle] (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/context.ts:109:19)
+      at TraversalContext.visitSingle [as visit] (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/context.ts:184:19)
+      at visit (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/traverse-node.ts:208:17)
+      at traverse (node_modules/.pnpm/@babel+traverse@7.28.6/node_modules/@babel/traverse/src/index.ts:84:15)
+      at transformFile (node_modules/.pnpm/@babel+core@7.28.6/node_modules/@babel/core/src/transformation/index.ts:120:15)
+          at transformFile.next (<anonymous>)
+      at transformFile (node_modules/.pnpm/@babel+core@7.28.6/node_modules/@babel/core/src/transformation/index.ts:50:12)
+          at run.next (<anonymous>)
+      at transform (node_modules/.pnpm/@babel+core@7.28.6/node_modules/@babel/core/src/transform.ts:29:20)
+          at transform.next (<anonymous>)
+      at evaluateSync (node_modules/.pnpm/gensync@1.0.0-beta.2/node_modules/gensync/index.js:251:28)
+      at sync (node_modules/.pnpm/gensync@1.0.0-beta.2/node_modules/gensync/index.js:89:14)
+      at fn (node_modules/.pnpm/@babel+core@7.28.6/node_modules/@babel/core/src/errors/rewrite-stack-trace.ts:99:14)
+      at transformSync (node_modules/.pnpm/@babel+core@7.28.6/node_modules/@babel/core/src/transform.ts:66:52)
+      at ScriptTransformer.transformSource (node_modules/.pnpm/@jest+transform@29.7.0/node_modules/@jest/transform/build/ScriptTransformer.js:545:31)
+      at ScriptTransformer._transformAndBuildScript (node_modules/.pnpm/@jest+transform@29.7.0/node_modules/@jest/transform/build/ScriptTransformer.js:674:40)
+      at ScriptTransformer.transform (node_modules/.pnpm/@jest+transform@29.7.0/node_modules/@jest/transform/build/ScriptTransformer.js:726:19)
 
 Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
+Tests:       0 total
 Snapshots:   0 total
-Time:        1.427 s, estimated 15 s
-Ran all test suites.
+Time:        0.607 s
+Ran all test suites matching /__tests__\/App.test.tsx/i.
