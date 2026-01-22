@@ -31,7 +31,8 @@ The app leverages reusable components from `@react-native-reusables/cli@latest` 
 - **Modular Components**: Emphasis on reusable, atomic components.
 
 ### Testing Strategy
-- [To be defined - standardizing on Jest/React Native Testing Library recommended]
+- **Test-Driven Development (TDD)**: All new features and significant changes must follow a TDD approach. Tests (Jest/React Native Testing Library) should be written *before* the implementation code to define the expected behavior.
+- **Verification**: Run `pnpm test` (or equivalent) frequently to ensure no regressions.
 
 ### Git Workflow
 - **Trunk-Based**: Small, frequent commits to main (or short-lived branches merging to main).
