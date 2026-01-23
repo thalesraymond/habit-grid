@@ -26,7 +26,7 @@ export default function LineView({ data, color }: LineViewProps) {
                     status={day.status}
                     color={day.status === 'completed' ? color : undefined} // Only apply color if completed
                     className={day.status === 'pending' ? 'bg-surface border border-gray-700' : ''} // Optional styling for pending
-                    size={24} 
+                    size={40} 
                 />
             ))}
         </View>
