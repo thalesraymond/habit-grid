@@ -3,7 +3,7 @@ import LineView, { LineViewData } from '@/components/LineView';
 import { generateMockData } from '@/utils/mockData';
 import { cssInterop } from 'nativewind';
 import { useMemo } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 cssInterop(View, { className: 'style' });
@@ -68,6 +68,14 @@ export default function HomeScreen() {
                     <LineView data={habit.history} color={habit.color} />
                 </View>
             ))}
+            
+            {/* Add Habit Button */}
+            <TouchableOpacity 
+                className="flex-row items-center justify-center p-4 rounded-lg border-2 border-dashed border-gray-700"
+                activeOpacity={0.7}
+            >
+                <Text className="text-gray-400 font-medium text-lg">+ Add Habit</Text>
+            </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
