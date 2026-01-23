@@ -3,12 +3,14 @@ import LineView, { LineViewData } from '@/components/LineView';
 import { generateMockData } from '@/utils/mockData';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import * as Linking from 'expo-linking';
+import { Link } from 'expo-router';
 import { cssInterop } from 'nativewind';
 import { useMemo } from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 cssInterop(View, { className: 'style' });
+cssInterop(TouchableOpacity, { className: 'style' });
 
 export default function HomeScreen() {
   // Generate data once
@@ -73,10 +75,15 @@ export default function HomeScreen() {
         {/* Individual Habits List */}
         <View className="gap-6">
             {habits.map(habit => (
-                <View key={habit.id} className="bg-surface p-4 rounded-lg flex-row justify-between items-center">
-                    <Text className="text-white font-medium text-lg">{habit.title}</Text>
-                    <LineView data={habit.history} color={habit.color} />
-                </View>
+                <Link key={habit.id} href={{
+                    pathname: "/habit/[id]",
+                    params: { id: habit.id, title: habit.title, color: habit.color }
+                }} asChild>
+                    <TouchableOpacity className="bg-surface p-4 rounded-lg flex-row justify-between items-center">
+                        <Text className="text-white font-medium text-lg">{habit.title}</Text>
+                        <LineView data={habit.history} color={habit.color} />
+                    </TouchableOpacity>
+                </Link>
             ))}
             
             {/* Add Habit Button */}

@@ -8,10 +8,10 @@ cssInterop(View, { className: 'style' });
 
 interface CalendarViewProps {
     data: DayData[];
-    // We could add a color prop here if we want the whole grid to use a different base color in the future
+    color?: string;
 }
 
-export default function CalendarView({ data }: CalendarViewProps) {
+export default function CalendarView({ data, color }: CalendarViewProps) {
     // Structure data into weeks (columns)
     // 7 days per week
     const weeks: DayData[][] = [];
@@ -35,7 +35,8 @@ export default function CalendarView({ data }: CalendarViewProps) {
                                 <Square
                                     key={`${wIndex}-${dIndex}`}
                                     date={day.date}
-                                    intensity={day.intensity}
+                                    intensity={color ? undefined : day.intensity}
+                                    color={color && day.intensity > 0 ? color : undefined}
                                     // standard size w-4 h-4 is default in Square
                                 />
                             ))}

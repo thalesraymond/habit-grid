@@ -1,0 +1,64 @@
+
+> habit-grid@1.0.0 web /app
+> expo start --web
+
+Starting project at /app
+React Compiler enabled
+Starting Metro Bundler
+The following packages should be updated for best compatibility with the installed expo version:
+  @types/jest@30.0.0 - expected version: 29.5.14
+Your project may not work correctly until you install the expected versions of the packages.
+Waiting on http://localhost:8081
+Logs for your project will appear below.
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ▓▓▓▓░░░░░░░░░░░░ 27.2% (116/282)
+λ node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js ▓▓░░░░░░░░░░░░░░ 13.6% (113/306)
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ▓▓▓▓▓▓░░░░░░░░░░ 38.8% (294/472)
+λ node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js ▓▓▓▓▓▓░░░░░░░░░░ 43.2% (311/473)
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 59.2% (475/632)
+λ node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js ▓▓▓▓▓▓▓▓▓▓░░░░░░ 62.7% (484/611)
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 71.0% (628/754)
+λ node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 68.9% (610/735)
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ▓▓▓▓▓▓▓▓▓▓▓▓▓░░░ 86.0% (800/865)
+λ node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js ▓▓▓▓▓▓▓▓▓▓▓▓░░░░ 77.8% (761/863)
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 93.7% (1061/1096)
+λ node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 93.2% (1029/1066)
+λ Bundled 22099ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js (1132 modules)
+Web Bundled 23171ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1131 modules)
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ▓▓▓▓░░░░░░░░░░░░ 29.0% (150/316)
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ▓▓▓▓▓▓▓▓▓░░░░░░░ 62.1% (565/717)
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ▓▓▓▓▓▓▓▓▓▓▓▓▓░░░ 86.3% ( 957/1030)
+Web Bundled 10066ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1133 modules)
+ LOG  [web] Logs will appear in the browser console
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+λ Bundled 47ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js (1 module)
+Web Bundled 503ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+Web Bundled 55ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+ LOG  [web] Logs will appear in the browser console
+λ Bundled 42ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js (1 module)
+λ  WARN  props.pointerEvents is deprecated. Use style.pointerEvents
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 2083ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+Web Bundled 49ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+ LOG  [web] Logs will appear in the browser console
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+λ Bundled 34ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js (1 module)
+Web Bundled 428ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+Web Bundled 51ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+ LOG  [web] Logs will appear in the browser console
+λ Bundled 44ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js (1 module)
+λ  WARN  props.pointerEvents is deprecated. Use style.pointerEvents
+Web Bundled 628ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+Web Bundled 51ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+ LOG  [web] Logs will appear in the browser console
+Web node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+λ Bundled 61ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js (1 module)
+Web Bundled 621ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+Web Bundled 57ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+ LOG  [web] Logs will appear in the browser console
+λ Bundled 48ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/node/render.js (1 module)
+λ  WARN  props.pointerEvents is deprecated. Use style.pointerEvents
+Web Bundled 561ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+Web Bundled 49ms node_modules/.pnpm/expo-router@6.0.22_62421ded7d37898af4c7f3c80b7f1668/node_modules/expo-router/entry.js (1 module)
+ LOG  [web] Logs will appear in the browser console
+ ELIFECYCLE  Command failed.

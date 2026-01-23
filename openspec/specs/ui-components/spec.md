@@ -30,3 +30,10 @@ The application MUST provide a `Calendar View` component (refactoring the legacy
 It MUST display the year's contribution graph using `Square` components
 And it mimics the GitHub contribution graph layout
 
+
+### Requirement: CalendarView Customization
+The CalendarView component MUST support custom coloring for its cells.
+#### Scenario: CalendarView supports custom colors
+- **Given** the `CalendarView` component
+- **When** a `color` prop is provided
+- **Then** the squares in the grid use that color for active states instead of the default scale
