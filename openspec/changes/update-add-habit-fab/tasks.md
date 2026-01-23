@@ -1,0 +1,4 @@
+- [ ] Remove existing "Add Habit" button from `app/(tabs)/index.tsx` <!-- id: 0 -->
+- [ ] Add Floating Action Button (FAB) to `app/(tabs)/index.tsx` <!-- id: 1 -->
+- [ ] Style FAB as a circle with "+" icon <!-- id: 2 -->
+- [ ] Verify FAB position and appearance <!-- id: 3 -->
