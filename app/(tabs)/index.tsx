@@ -1,6 +1,8 @@
 import CalendarView from '@/components/CalendarView';
 import LineView, { LineViewData } from '@/components/LineView';
 import { generateMockData } from '@/utils/mockData';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import * as Linking from 'expo-linking';
 import { cssInterop } from 'nativewind';
 import { useMemo } from 'react';
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
@@ -33,9 +35,17 @@ export default function HomeScreen() {
   return (
     <SafeAreaView className="flex-1 bg-background p-4">
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
-        <View className="mb-6">
-            <Text className="text-white text-2xl font-bold mb-2">My Habits</Text>
-            <Text className="text-gray-400 text-base">Visualize your consistency.</Text>
+        <View className="mb-6 flex-row justify-between items-start">
+            <View>
+                <Text className="text-white text-2xl font-bold mb-2">My Habits</Text>
+                <Text className="text-gray-400 text-base">Visualize your consistency.</Text>
+            </View>
+            <TouchableOpacity 
+                onPress={() => Linking.openURL('https://github.com/thalesraymond/habit-grid')}
+                className="p-2"
+            >
+                <Ionicons name="logo-github" size={24} color="#9CA3AF" />
+            </TouchableOpacity>
         </View>
 
         {/* Global Activity Log */}
