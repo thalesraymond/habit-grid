@@ -1,16 +1,17 @@
-import React from 'react';
-import { View, ScrollView } from 'react-native';
-import { DayData } from '../utils/mockData';
 import { cssInterop } from 'nativewind';
+import React from 'react';
+import { ScrollView, View } from 'react-native';
+import { DayData } from '../utils/mockData';
+import Square from './Square';
 
-// Ensure View can accept className if not automatically handled by jsxImportSource
 cssInterop(View, { className: 'style' });
 
-interface HabitGridProps {
+interface CalendarViewProps {
     data: DayData[];
+    // We could add a color prop here if we want the whole grid to use a different base color in the future
 }
 
-export default function HabitGrid({ data }: HabitGridProps) {
+export default function CalendarView({ data }: CalendarViewProps) {
     // Structure data into weeks (columns)
     // 7 days per week
     const weeks: DayData[][] = [];
@@ -24,16 +25,6 @@ export default function HabitGrid({ data }: HabitGridProps) {
         }
     });
 
-    const getIntensityClass = (intensity: number) => {
-        switch (intensity) {
-            case 1: return 'bg-habit-1';
-            case 2: return 'bg-habit-2';
-            case 3: return 'bg-habit-3';
-            case 4: return 'bg-habit-4';
-            default: return 'bg-habit-0'; // grid background or surface
-        }
-    };
-
     return (
         <View className="h-40">
             <ScrollView horizontal showsHorizontalScrollIndicator={false} className="flex-1">
@@ -41,11 +32,11 @@ export default function HabitGrid({ data }: HabitGridProps) {
                     {weeks.map((week, wIndex) => (
                         <View key={wIndex} className="flex-col gap-1">
                             {week.map((day, dIndex) => (
-                                <View
+                                <Square
                                     key={`${wIndex}-${dIndex}`}
-                                    className={`w-4 h-4 rounded-sm ${getIntensityClass(day.intensity)}`}
-                                    // Tooltip or accessibility label could go here
-                                    accessibilityLabel={`Date: ${day.date}, Intensity: ${day.intensity}`}
+                                    date={day.date}
+                                    intensity={day.intensity}
+                                    // standard size w-4 h-4 is default in Square
                                 />
                             ))}
                         </View>
