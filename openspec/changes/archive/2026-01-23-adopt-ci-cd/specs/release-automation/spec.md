@@ -2,8 +2,8 @@
 
 ## ADDED Requirements
 
-### Release Please Integration
-The project must use Google's Release Please action for automating version mgmt.
+### Requirement: Release Please Integration
+The project MUST use Google's Release Please action for automating version mgmt.
 
 #### Scenario: Release PR Creation
 Given a set of conventional commits on `main`
