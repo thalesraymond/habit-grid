@@ -1,0 +1,23 @@
+# Tasks: Refine Home Page
+
+- [ ] Create `Square` atom component
+    - [ ] Props: `date`, `status`, `color`, `size`, `onPress`
+    - [ ] Implement using NativeWind styled `View`
+    - [ ] Add basic test
+- [ ] Create `CalendarView` component
+    - [ ] Refactor logic from `app/(tabs)/index.tsx` or existing `HabitGrid`
+    - [ ] Use `Square` internally
+    - [ ] Ensure it matches current "Activity Log" appearance
+- [ ] Create `LineView` component
+    - [ ] Horizontal list of `Square`s
+    - [ ] Accept `days` prop (array of data)
+- [ ] Update Home Screen (`app/(tabs)/index.tsx`)
+    - [ ] Keep "Activity Log" section using `CalendarView`
+    - [ ] Add "My Habits" section below
+    - [ ] Render Mock Habits list:
+        - [ ] "Drink Water" (Cyan), Last 5 days mock data
+        - [ ] "Morning Jog" (Rose), Last 5 days mock data
+        - [ ] "Reading" (Amber), Last 5 days mock data
+- [ ] Verify UI
+    - [ ] Check `Square` sizing differences (Grid vs Line)
+    - [ ] Check Color distinctions
