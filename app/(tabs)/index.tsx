@@ -1,8 +1,8 @@
-import { View, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import HabitGrid from '@/components/HabitGrid';
 import { generateMockData } from '@/utils/mockData';
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
+import { Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   // Generate data once
