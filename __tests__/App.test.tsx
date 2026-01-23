@@ -22,4 +22,14 @@ describe('HomeScreen', () => {
     render(<HomeScreen />);
     expect(screen.getByText('My Habits')).toBeTruthy();
   });
+
+  it('has accessible GitHub link', () => {
+    render(<HomeScreen />);
+    expect(screen.getByLabelText('Visit Habit Grid repository on GitHub')).toBeTruthy();
+  });
+
+  it('has accessible Add Habit button', () => {
+    render(<HomeScreen />);
+    expect(screen.getByRole('button', { name: '+ Add Habit' })).toBeTruthy();
+  });
 });

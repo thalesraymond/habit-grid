@@ -43,6 +43,8 @@ export default function HomeScreen() {
             <TouchableOpacity 
                 onPress={() => Linking.openURL('https://github.com/thalesraymond/habit-grid')}
                 className="p-2"
+                accessibilityLabel="Visit Habit Grid repository on GitHub"
+                accessibilityRole="link"
             >
                 <Ionicons name="logo-github" size={24} color="#9CA3AF" />
             </TouchableOpacity>
@@ -83,6 +85,8 @@ export default function HomeScreen() {
             <TouchableOpacity 
                 className="flex-row items-center justify-center p-4 rounded-lg border-2 border-dashed border-gray-700"
                 activeOpacity={0.7}
+                accessibilityRole="button"
+                accessibilityHint="Create a new habit to track"
             >
                 <Text className="text-gray-400 font-medium text-lg">+ Add Habit</Text>
             </TouchableOpacity>
