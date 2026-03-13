@@ -10,27 +10,27 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 cssInterop(View, { className: 'style' });
 
+const getMockHistory = (seed: number): LineViewData[] => {
+  // Generate last 5 days
+  return Array.from({ length: 5 }).map((_, i) => ({
+      date: `2023-01-${i + 1}`, // Dummy date
+      status: ((seed + i) % 3 === 0 ? 'missed' : 'completed') as 'missed' | 'completed', // mostly completed
+  })).reverse(); // Today is last? usually right is today.
+  // If we want Left to Right: Past -> Today.
+  // Array.from length 5. i=0 is 5 days ago usually?
+  // Let's assume the view renders Left->Right.
+  // "Today" should be on the right or user preference. Standard is Left=Past, Right=Today.
+};
+
 export default function HomeScreen() {
   // Generate data once
   const data = useMemo(() => generateMockData(365), []);
 
-  const getMockHistory = (seed: number): LineViewData[] => {
-      // Generate last 5 days
-      return Array.from({ length: 5 }).map((_, i) => ({
-          date: `2023-01-${i + 1}`, // Dummy date
-          status: ((seed + i) % 3 === 0 ? 'missed' : 'completed') as 'missed' | 'completed', // mostly completed
-      })).reverse(); // Today is last? usually right is today.
-      // If we want Left to Right: Past -> Today.
-      // Array.from length 5. i=0 is 5 days ago usually?
-      // Let's assume the view renders Left->Right.
-      // "Today" should be on the right or user preference. Standard is Left=Past, Right=Today.
-  };
-
-  const habits = [
+  const habits = useMemo(() => [
       { id: 1, title: 'Drink Water', color: 'bg-cyan-500', history: getMockHistory(1) },
       { id: 2, title: 'Morning Jog', color: 'bg-rose-500', history: getMockHistory(2) },
       { id: 3, title: 'Reading', color: 'bg-amber-500', history: getMockHistory(4) },
-  ];
+  ], []);
 
   return (
     <SafeAreaView className="flex-1 bg-background p-4">
