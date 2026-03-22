@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    // NOTE: Pre-included NativeWind content is handled by nativewind preset usually, 
-    // but explicitly stating content is good practice.
     content: [
         "./app/**/*.{js,jsx,ts,tsx}",
         "./components/**/*.{js,jsx,ts,tsx}"
@@ -9,16 +7,59 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                background: '#0d1117',
-                surface: '#161b22',
-                habit: {
-                    0: '#161b22', // Empty
-                    1: '#0e4429', // Low
-                    2: '#006d32', // Medium
-                    3: '#26a641', // High
-                    4: '#39d353', // Max
-                }
-            }
+                "error": "#ffb4ab",
+                "on-tertiary-fixed": "#00210b",
+                "surface-container-lowest": "#0a0e14",
+                "secondary-fixed": "#83fc8b",
+                "on-error": "#690005",
+                "surface-container-low": "#181c22",
+                "on-tertiary": "#003917",
+                "on-error-container": "#ffdad6",
+                "tertiary-fixed-dim": "#7fda92",
+                "surface": "#10141a",
+                "on-secondary-fixed": "#002105",
+                "outline-variant": "#3e4a3c",
+                "on-primary-fixed-variant": "#005316",
+                "primary-fixed": "#6fff7b",
+                "on-primary-fixed": "#002205",
+                "error-container": "#93000a",
+                "secondary-fixed-dim": "#66df72",
+                "primary-fixed-dim": "#4be260",
+                "on-tertiary-container": "#003113",
+                "tertiary-container": "#49a260",
+                "on-secondary-fixed-variant": "#005318",
+                "inverse-surface": "#dfe2eb",
+                "on-surface": "#dfe2eb",
+                "on-primary": "#00390c",
+                "surface-variant": "#31353c",
+                "surface-container-highest": "#31353c",
+                "on-surface-variant": "#bdcab8",
+                "surface-dim": "#10141a",
+                "tertiary": "#7fda92",
+                "on-tertiary-fixed-variant": "#005224",
+                "inverse-primary": "#006e20",
+                "on-secondary-container": "#00320b",
+                "surface-tint": "#4be260",
+                "on-background": "#dfe2eb",
+                "secondary-container": "#26a641",
+                "on-secondary": "#00390e",
+                "on-primary-container": "#00320a",
+                "outline": "#879484",
+                "surface-bright": "#353940",
+                "tertiary-fixed": "#9bf7ac",
+                "secondary": "#66df72",
+                "primary": "#4be260",
+                "surface-container-high": "#262a31",
+                "background": "#10141a",
+                "inverse-on-surface": "#2d3137",
+                "primary-container": "#00a836",
+                "surface-container": "#1c2026"
+            },
+            fontFamily: {
+                "headline": ["SpaceGrotesk", "sans-serif"],
+                "body": ["Inter", "sans-serif"],
+                "label": ["SpaceGrotesk", "sans-serif"]
+            },
         },
     },
     plugins: [],

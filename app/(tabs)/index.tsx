@@ -1,93 +1,146 @@
-import CalendarView from '@/components/CalendarView';
-import LineView, { LineViewData } from '@/components/LineView';
-import { generateMockData } from '@/utils/mockData';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import * as Linking from 'expo-linking';
+import { View, Text, ScrollView, TouchableOpacity, Switch } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { MaterialIcons } from '@expo/vector-icons';
+import { TopHeader, CommitGrid } from '@/components/PrototypeUI';
 import { cssInterop } from 'nativewind';
-import { useMemo } from 'react';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useState } from 'react';
 
 cssInterop(View, { className: 'style' });
 
-export default function HomeScreen() {
-  // Generate data once
-  const data = useMemo(() => generateMockData(365), []);
+export default function DashboardScreen() {
+    const router = useRouter();
+    const insets = useSafeAreaInsets();
+    
+    const [tasks, setTasks] = useState([
+        { title: 'Deep Work Session', sub: 'Completed at 09:14 AM', checked: true },
+        { title: 'Daily Hydration', sub: 'Completed at 11:30 AM', checked: true },
+        { title: 'Read Documentation', sub: 'Pending Task', checked: false },
+        { title: 'Cardio Routine', sub: 'Scheduled for 06:00 PM', checked: false },
+    ]);
 
-  const getMockHistory = (seed: number): LineViewData[] => {
-      // Generate last 5 days
-      return Array.from({ length: 5 }).map((_, i) => ({
-          date: `2023-01-${i + 1}`, // Dummy date
-          status: ((seed + i) % 3 === 0 ? 'missed' : 'completed') as 'missed' | 'completed', // mostly completed
-      })).reverse(); // Today is last? usually right is today.
-      // If we want Left to Right: Past -> Today.
-      // Array.from length 5. i=0 is 5 days ago usually?
-      // Let's assume the view renders Left->Right.
-      // "Today" should be on the right or user preference. Standard is Left=Past, Right=Today.
-  };
+    const toggleTask = (index: number) => {
+        const newTasks = [...tasks];
+        newTasks[index].checked = !newTasks[index].checked;
+        setTasks(newTasks);
+    };
 
-  const habits = [
-      { id: 1, title: 'Drink Water', color: 'bg-cyan-500', history: getMockHistory(1) },
-      { id: 2, title: 'Morning Jog', color: 'bg-rose-500', history: getMockHistory(2) },
-      { id: 3, title: 'Reading', color: 'bg-amber-500', history: getMockHistory(4) },
-  ];
-
-  return (
-    <SafeAreaView className="flex-1 bg-background p-4">
-      <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
-        <View className="mb-6 flex-row justify-between items-start">
-            <View>
-                <Text className="text-white text-2xl font-bold mb-2">My Habits</Text>
-                <Text className="text-gray-400 text-base">Visualize your consistency.</Text>
-            </View>
-            <TouchableOpacity 
-                onPress={() => Linking.openURL('https://github.com/thalesraymond/habit-grid')}
-                className="p-2"
-            >
-                <Ionicons name="logo-github" size={24} color="#9CA3AF" />
-            </TouchableOpacity>
-        </View>
-
-        {/* Global Activity Log */}
-        <View className="bg-surface rounded-lg p-4 mb-8">
-            <View className="flex-row justify-between items-center mb-4">
-                <Text className="text-white font-semibold">Activity Log</Text>
-                <Text className="text-gray-500 text-xs">Last Year</Text>
-            </View>
-            <CalendarView data={data} />
-            
-            {/* Legend */}
-            <View className="flex-row gap-2 mt-4 justify-end items-center">
-                <Text className="text-gray-500 text-xs">Less</Text>
-                <View className="flex-row gap-1">
-                    <View className="w-3 h-3 rounded-sm bg-habit-0" />
-                    <View className="w-3 h-3 rounded-sm bg-habit-1" />
-                    <View className="w-3 h-3 rounded-sm bg-habit-2" />
-                    <View className="w-3 h-3 rounded-sm bg-habit-3" />
-                    <View className="w-3 h-3 rounded-sm bg-habit-4" />
+    return (
+        <View className="flex-1 bg-background pb-20">
+            <TopHeader />
+            <ScrollView className="flex-1" contentContainerStyle={{ padding: 24, paddingBottom: 100 }}>
+                {/* Total Contributions Section */}
+                <View className="bg-surface-container p-6 rounded-lg border border-outline-variant/10 mb-8 overflow-hidden">
+                    <View className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundColor: 'rgba(189, 202, 184, 0.05)' }}></View>
+                    <View className="flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+                        <View>
+                            <Text className="font-headline text-2xl font-bold text-on-surface mb-1 uppercase">Total_Contributions</Text>
+                            <View className="flex-row items-baseline gap-2">
+                                <Text className="font-label text-4xl font-bold text-primary">1,284</Text>
+                                <Text className="font-label text-sm text-secondary">++12% VS LAST_PERIOD</Text>
+                            </View>
+                        </View>
+                        <View className="flex-row gap-2 items-center">
+                            <Text className="text-[10px] font-label text-on-surface-variant uppercase">Less</Text>
+                            <View className="w-3 h-3 bg-surface-container-highest rounded-sm"></View>
+                            <View className="w-3 h-3 bg-secondary-container/40 rounded-sm"></View>
+                            <View className="w-3 h-3 bg-secondary-container/70 rounded-sm"></View>
+                            <View className="w-3 h-3 bg-primary rounded-sm"></View>
+                            <Text className="text-[10px] font-label text-on-surface-variant uppercase">More</Text>
+                        </View>
+                    </View>
+                    
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} className="pb-2">
+                        <View>
+                            <CommitGrid cols={20} />
+                            <View className="flex-row justify-between mt-3 px-1 w-full">
+                                <Text className="font-label text-[10px] text-on-surface-variant uppercase tracking-wider">Jan</Text>
+                                <Text className="font-label text-[10px] text-on-surface-variant uppercase tracking-wider">Feb</Text>
+                                <Text className="font-label text-[10px] text-on-surface-variant uppercase tracking-wider">Mar</Text>
+                                <Text className="font-label text-[10px] text-on-surface-variant uppercase tracking-wider">Apr</Text>
+                                <Text className="font-label text-[10px] text-on-surface-variant uppercase tracking-wider">May</Text>
+                            </View>
+                        </View>
+                    </ScrollView>
                 </View>
-                <Text className="text-gray-500 text-xs">More</Text>
-            </View>
-        </View>
 
-        {/* Individual Habits List */}
-        <View className="gap-6">
-            {habits.map(habit => (
-                <View key={habit.id} className="bg-surface p-4 rounded-lg flex-row justify-between items-center">
-                    <Text className="text-white font-medium text-lg">{habit.title}</Text>
-                    <LineView data={habit.history} color={habit.color} />
+                {/* Active Streaks */}
+                <View className="mb-8">
+                    <View className="flex-row items-center justify-between mb-4 px-1">
+                        <Text className="font-headline text-lg font-bold uppercase tracking-tight text-on-surface">Active_Streaks</Text>
+                        <TouchableOpacity onPress={() => router.push('/stats')}>
+                            <Text className="font-label text-xs text-primary">VIEW_METRICS</Text>
+                        </TouchableOpacity>
+                    </View>
+                    
+                    <View className="flex-col gap-4">
+                        {[
+                            { name: 'Morning Dev', title: 'Deep Work Session', val: 42, perc: 84, lvl: 8, color: 'text-primary' },
+                            { name: 'Health Loop', title: 'Daily Hydration', val: 118, perc: 95, lvl: 12, color: 'text-secondary' },
+                            { name: 'Skill Tree', title: 'Read Documentation', val: 14, perc: 40, lvl: 3, color: 'text-tertiary' }
+                        ].map((streak, i) => (
+                            <TouchableOpacity 
+                                key={i} 
+                                className="bg-surface-container-low p-5 rounded-lg border border-outline-variant/10 active:opacity-70"
+                                onPress={() => router.push('/habit-detail')}
+                            >
+                                <View className="flex-row justify-between items-start mb-4">
+                                    <View>
+                                        <Text className="font-label text-[10px] text-on-surface-variant uppercase mb-1">{streak.name}</Text>
+                                        <Text className="font-body font-bold text-on-surface text-base">{streak.title}</Text>
+                                    </View>
+                                    <Text className={`font-label text-2xl font-bold ${streak.color}`}>{streak.val}</Text>
+                                </View>
+                                <View className="flex-col gap-2">
+                                    <View className="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden flex-row">
+                                        <View className="h-full bg-primary" style={{width: `${streak.perc}%`}}></View>
+                                    </View>
+                                    <View className="flex-row justify-between">
+                                        <Text className="font-label text-[10px] text-on-surface-variant">LVL 0{streak.lvl}</Text>
+                                        <Text className="font-label text-[10px] text-on-surface-variant">{streak.perc}% TO NEXT_MILESTONE</Text>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
+                        ))}
+                    </View>
                 </View>
-            ))}
-            
-            {/* Add Habit Button */}
-            <TouchableOpacity 
-                className="flex-row items-center justify-center p-4 rounded-lg border-2 border-dashed border-gray-700"
-                activeOpacity={0.7}
-            >
-                <Text className="text-gray-400 font-medium text-lg">+ Add Habit</Text>
-            </TouchableOpacity>
+
+                {/* Today Deployment */}
+                <View className="mb-8">
+                    <View className="flex-row items-center justify-between mb-4 px-1">
+                        <Text className="font-headline text-lg font-bold uppercase tracking-tight text-on-surface">Today_Deployment</Text>
+                        <Text className="font-label text-xs text-on-surface-variant">04 / 06 COMPLETED</Text>
+                    </View>
+                    
+                    <View className="flex-col gap-3">
+                        {tasks.map((item, i) => (
+                            <View key={i} className="flex-row items-center justify-between bg-surface-container p-4 rounded border border-outline-variant/10">
+                                <TouchableOpacity 
+                                    className="flex-row items-center gap-4 flex-1"
+                                    onPress={() => toggleTask(i)}
+                                    activeOpacity={0.7}
+                                >
+                                    <View className={`w-6 h-6 border-2 rounded-sm flex items-center justify-center ${item.checked ? 'bg-primary border-primary' : 'border-outline bg-transparent'}`}>
+                                        {item.checked && <MaterialIcons name="check" size={16} color="#00390c" />}
+                                    </View>
+                                    <View>
+                                        <Text className={`font-body font-medium ${item.checked ? 'text-on-surface-variant line-through' : 'text-on-surface'}`}>{item.title}</Text>
+                                        <Text className={`font-label text-[11px] uppercase ${item.checked ? 'text-primary' : 'text-on-surface-variant'}`}>{item.sub}</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+                        ))}
+                    </View>
+                    
+                    <TouchableOpacity 
+                        onPress={() => router.push('/edit-habit')} 
+                        className="w-full mt-6 py-4 border-2 border-dashed border-outline-variant/30 rounded flex-row items-center justify-center gap-2 active:opacity-70"
+                    >
+                        <MaterialIcons name="add-circle" size={20} color="#879484" />
+                        <Text className="font-headline font-bold uppercase tracking-widest text-sm text-on-surface-variant">Initialize_New_Habit</Text>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
         </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+    );
 }
