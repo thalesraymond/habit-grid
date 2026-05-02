@@ -2,11 +2,34 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
-import React from 'react';
+import React, { useMemo } from 'react';
+
+const STATS_DATA = [
+    { label: 'Current Streak', val: '14', unit: 'DAYS', color: 'text-primary' },
+    { label: 'Longest Streak', val: '42', unit: 'DAYS', color: 'text-on-surface' },
+    { label: 'Total Commits', val: '892', unit: '', color: 'text-on-surface' },
+    { label: 'Completion Rate', val: '94', unit: '%', color: 'text-secondary' }
+];
+
+const RECENT_ACTIVITY_DATA = [
+    { date: 'Oct 24, 2023', meta: '09:42 PM • 4 COMMITS', status: 'success' },
+    { date: 'Oct 23, 2023', meta: '10:15 PM • 1 COMMIT', status: 'success' },
+    { date: 'Oct 22, 2023', meta: 'NO ACTIVITY RECORDED', status: 'missed' },
+    { date: 'Oct 21, 2023', meta: '11:58 PM • 12 COMMITS', status: 'success' },
+];
 
 export default function HabitDetailScreen() {
     const router = useRouter();
     const insets = useSafeAreaInsets();
+
+    const contributionData = useMemo(() => {
+        return [...Array(10)].map(() =>
+            [...Array(7)].map(() => {
+                const r = Math.random();
+                return r > 0.8 ? 'bg-primary' : r > 0.6 ? 'bg-secondary-container' : 'bg-surface-container-highest';
+            })
+        );
+    }, []);
     
     return (
         <View className="flex-1 bg-background pb-20">
@@ -30,13 +53,11 @@ export default function HabitDetailScreen() {
                     <View className="bg-surface-container-low p-6 rounded border border-outline-variant/10 relative overflow-hidden">
                         <View className="flex-col gap-1">
                             <View className="w-full flex-row gap-[2px] h-24">
-                                {[...Array(10)].map((_, i) => (
+                                {contributionData.map((week, i) => (
                                     <View key={i} className="flex-1 flex-col gap-[2px]">
-                                        {[...Array(7)].map((_, j) => {
-                                            const r = Math.random();
-                                            const color = r > 0.8 ? 'bg-primary' : r > 0.6 ? 'bg-secondary-container' : 'bg-surface-container-highest';
-                                            return <View key={j} className={`w-full flex-1 rounded-sm ${color}`} />;
-                                        })}
+                                        {week.map((color, j) => (
+                                            <View key={j} className={`w-full flex-1 rounded-sm ${color}`} />
+                                        ))}
                                     </View>
                                 ))}
                                 <View className="flex-[10] bg-surface-container-highest/20 rounded-sm items-center justify-center px-4">
@@ -58,12 +79,7 @@ export default function HabitDetailScreen() {
 
                 {/* Stats Grid */}
                 <View className="p-4 flex-row flex-wrap gap-3">
-                    {[
-                        { label: 'Current Streak', val: '14', unit: 'DAYS', color: 'text-primary' },
-                        { label: 'Longest Streak', val: '42', unit: 'DAYS', color: 'text-on-surface' },
-                        { label: 'Total Commits', val: '892', unit: '', color: 'text-on-surface' },
-                        { label: 'Completion Rate', val: '94', unit: '%', color: 'text-secondary' }
-                    ].map((stat, i) => (
+                    {STATS_DATA.map((stat, i) => (
                         <View key={i} className="w-[48%] bg-surface-container p-4 rounded border border-outline-variant/10">
                             <Text className="text-on-surface-variant text-[10px] font-label uppercase tracking-wider mb-1">{stat.label}</Text>
                             <View className="flex-row items-baseline gap-1">
@@ -91,12 +107,7 @@ export default function HabitDetailScreen() {
                 <View className="p-4">
                     <Text className="text-on-surface text-sm font-label font-bold uppercase tracking-widest mb-4">Recent_Activity</Text>
                     <View className="flex-col gap-2">
-                        {[
-                            { date: 'Oct 24, 2023', meta: '09:42 PM • 4 COMMITS', status: 'success' },
-                            { date: 'Oct 23, 2023', meta: '10:15 PM • 1 COMMIT', status: 'success' },
-                            { date: 'Oct 22, 2023', meta: 'NO ACTIVITY RECORDED', status: 'missed' },
-                            { date: 'Oct 21, 2023', meta: '11:58 PM • 12 COMMITS', status: 'success' },
-                        ].map((log, i) => (
+                        {RECENT_ACTIVITY_DATA.map((log, i) => (
                             <View key={i} className={`flex-row items-center justify-between p-3 bg-surface-container-low rounded border-l-2 ${log.status === 'success' ? 'border-l-primary' : 'border-l-outline-variant/30'}`}>
                                 <View className={`flex-col ${log.status === 'missed' ? 'opacity-50' : ''}`}>
                                     <Text className="text-on-surface text-sm font-label uppercase">{log.date}</Text>
